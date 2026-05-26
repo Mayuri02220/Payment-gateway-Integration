@@ -21,28 +21,35 @@ const Products = ({ data }) => {
 
 
         const options = {
-        key: key,// Replace with your Razorpay key_id
-        amount: amount, // Amount is in currency subunits.
-        currency: 'INR',
-        name: 'Acme Corp',
-        description: 'Test Transaction',
-        order_id: order.id, // This is the order_id created in the backend
-        callback_url: '/api/paymentVerification', // Your success URL
-        prefill: {
-          name: 'test',
-          email:'test@example.com',
-          contact: '9579695930'
-        },
-        theme: {
-          color: '#F37254'
-        },
-      };
+            key: key,// Replace with your Razorpay key_id
+            amount: amount, // Amount is in currency subunits.
+            currency: 'INR',
+            name: 'Acme Corp',
+            description: 'Test Transaction',
+            order_id: order.id, // This is the order_id created in the backend
+            callback_url: '/api/paymentVerification', // Your success URL
+            prefill: {
+                name: 'test',
+                email: 'test@example.com',
+                contact: '9579695930'
+            },
+            method: {
+                upi: true,
+                card: true,
+                netbanking: true,
+                wallet: true,
+                paylater: true
+            },
+            theme: {
+                color: '#F37254'
+            },
+        };
 
-      const rzp = new Razorpay(options);
-      rzp.open();
+        const rzp = new Razorpay(options);
+        rzp.open();
     }
 
-    
+
     return (
 
         <div className='products-container'>

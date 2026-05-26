@@ -1,15 +1,18 @@
 import React from 'react'
-import Products from '../src/components/products.jsx';
-import data from "./components/data.jsx";
+import Products from './components/products.jsx'
+import PaymentSuccess from './components/paymentSuccess.jsx'
+import data from "./components/data.jsx"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-const App = () => {
+function App() {
   return (
-    <div>
-      <Products data={data}/>
-    
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Products data={data} />} />
+        <Route path='/paymentSuccess' element={<PaymentSuccess />} />
+      </Routes>
+    </Router>
   )
 }
 
 export default App
-

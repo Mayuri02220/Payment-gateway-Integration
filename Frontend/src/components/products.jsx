@@ -42,6 +42,7 @@ const Products = ({ data }) => {
       rzp.open();
     }
 
+    
     return (
 
         <div className='products-container'>
